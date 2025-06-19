@@ -1,40 +1,52 @@
 document.addEventListener("DOMContentLoaded", () => {
-    //--------------
-    // Art Selection
-    //--------------
+    async function renderArticles() {
+        const res = await fetch("articles.json");
+        const articlesData = await res.json();
+        const container = document.getElementById("articles-container");
 
-    const articles = document.querySelectorAll(".articles-container p");
-    let currentIndex = 0;
-
-    function updateSelection() {
-        articles.forEach((el, i) => {
-            el.classList.toggle("selected", i === currentIndex);
-            el.setAttribute("tabindex", i === currentIndex ? "0" : "-1");
-        });
-        articles[currentIndex]?.scrollIntoView({ block: "nearest", behavior: "smooth" });
-    }
-
-    function moveSelection(direction) {
-        const maxIndex = articles.length - 1;
-        if (direction === "down" && currentIndex < maxIndex) currentIndex++;
-        if (direction === "up" && currentIndex > 0) currentIndex--;
-        updateSelection();
-    }
-
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "j" || e.key === "ArrowDown") {
-            moveSelection("down");
-        } else if (e.key === "k" || e.key === "ArrowUp") {
-            moveSelection("up");
+        // Render articles
+        for (const name of articlesData) {
+            const article = document.createElement("p");
+            article.textContent = name;
+            article.setAttribute("tabindex", "-1");
+            container.appendChild(article);
         }
-    });
 
-    // Initial selection
-    updateSelection();
+        //--------------
+        // Art Selection
+        //--------------
+        const articles = container.querySelectorAll("p");
+        let currentIndex = 0;
+
+        function updateSelection() {
+            articles.forEach((el, i) => {
+                el.classList.toggle("selected", i === currentIndex);
+                el.setAttribute("tabindex", i === currentIndex ? "0" : "-1");
+            });
+            articles[currentIndex]?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+        }
+
+        function moveSelection(direction) {
+            const maxIndex = articles.length - 1;
+            if (direction === "down" && currentIndex < maxIndex) currentIndex++;
+            if (direction === "up" && currentIndex > 0) currentIndex--;
+            updateSelection();
+        }
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "j" || e.key === "ArrowDown") moveSelection("down");
+            else if (e.key === "k" || e.key === "ArrowUp") moveSelection("up");
+        });
+
+        updateSelection(); // Initial selection
+    }
+
+    renderArticles();
 
     //--------------
     // Cat Selection
     //--------------
+
     const categories = document.querySelectorAll(".categories span");
     let catIndex = 0;
 
@@ -54,13 +66,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     document.addEventListener("keydown", (e) => {
-        if (e.key === "l" || e.key === "ArrowRight") {
-            moveCategory("right");
-        } else if (e.key === "h" || e.key === "ArrowLeft") {
-            moveCategory("left");
-        }
+        if (e.key === "l" || e.key === "ArrowRight") moveCategory("right");
+        else if (e.key === "h" || e.key === "ArrowLeft") moveCategory("left");
     });
 
-    // Initial category selection
-    updateCatSelection();
+    updateCatSelection(); // Initial selection
 });
