@@ -1,4 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
+    //--------------
+    // Art Selection
+    //--------------
+
     const articles = document.querySelectorAll(".articles-container p");
     let currentIndex = 0;
 
@@ -27,4 +31,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Initial selection
     updateSelection();
+
+    //--------------
+    // Cat Selection
+    //--------------
+    const categories = document.querySelectorAll(".categories span");
+    let catIndex = 0;
+
+    function updateCatSelection() {
+        categories.forEach((el, i) => {
+            el.classList.toggle("selected", i === catIndex);
+            el.setAttribute("tabindex", i === catIndex ? "0" : "-1");
+        });
+        categories[catIndex]?.scrollIntoView({ inline: "nearest", behavior: "smooth" });
+    }
+
+    function moveCategory(direction) {
+        const maxIndex = categories.length - 1;
+        if (direction === "right" && catIndex < maxIndex) catIndex++;
+        if (direction === "left" && catIndex > 0) catIndex--;
+        updateCatSelection();
+    }
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "l" || e.key === "ArrowRight") {
+            moveCategory("right");
+        } else if (e.key === "h" || e.key === "ArrowLeft") {
+            moveCategory("left");
+        }
+    });
+
+    // Initial category selection
+    updateCatSelection();
 });
