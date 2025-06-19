@@ -54,6 +54,8 @@ a {
     position: absolute;
     left: 0;
     bottom: 0;
+    background-color: #2e2f46;
+    width: 100%;
 } 
 
 h1::before { content: "# "; }
