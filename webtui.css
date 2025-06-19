@@ -1,0 +1,4 @@
+@layer base, utils, components;
+
+@import './node_modules/@webtui/css/dist/full.css';
+@import './node_modules/@webtui/theme-catppuccin/dist/index.css';

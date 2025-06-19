@@ -1,0 +1,37 @@
+.block {
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+pre code {
+    padding: 0px;
+    width: fit-content;
+}
+pre {
+    padding: 0;
+    width: fit-content;
+}
+.block {
+    width: 60%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/*
+.bg1 { background-color: #cdd6f4; }
+.bg2 { background-color: #bac2de; }
+.bg3 { background-color: #9399b2; }
+*/
+
+.bar {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+} 
+
+h1::before { content: "# "; }
+h2::before { content: "## "; }
+h3::before { content: "### "; }
+h4::before { content: "#### "; }
+h5::before { content: "##### "; }
+h6::before { content: "###### "; }

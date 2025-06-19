@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" data-webtui-theme="catppuccin">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>- Loading Blog</title>
+    <link rel="stylesheet" href="../webtui.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Highlight JS-->
+    <link rel="stylesheet" href="../node_modules/highlight.js/styles/atom-one-dark.css">
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.11.1/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <!-- JS-->
+    <script src="render.js" defer></script>
+    <script src="app.js"></script>
+</head>
+<body>
+    <div box-="round" class="block" shear-="both">
+        <div class="header">
+            <span is-="badge" variant-="background0"><h1>Title</h1></span>
+        </div>
+        <div class="content">
+            <h1>Hello, World</h1>
+            <p>Here is some content</p>
+            <pre><code>
+console.log("Hello, World")
+            </code></pre>
+            <p>This is a <span>Span</span></p>
+        </div>
+    </div>
+
+    <div class="bar">
+        <span is-="badge" cap-="square ">[b]ack</span>
+        <span is-="badge" cap-="square " variant-="foreground1">[h]elp</span>
+        <span is-="badge" cap-="square" variant-="foreground2">[n]ext</span>
+        <span is-="badge" cap-="square round" variant-="foreground3">[l]ast</span>
+    </div>
+</body>
+</html>
