@@ -11,11 +11,19 @@ pre {
     width: fit-content;
 }
 .block {
-    width: 60%;
+    width: 90%;
     position: absolute;
-    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%);
+}
+.block h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.block h1:nth-child(1) { /* Title */
+    margin-top: 0;
+    margin-bottom: 0;
 }
 /*
 .bg1 { background-color: #cdd6f4; }
@@ -23,11 +31,38 @@ pre {
 .bg3 { background-color: #9399b2; }
 */
 
+pre {
+    padding: 15px;
+}
+
 .bar {
-    position: absolute;
+    position: fixed;
     left: 0;
     bottom: 0;
-} 
+    background-color: #2e2f46;
+    width: 100%;
+}
+
+.help {
+    width: fit-content;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1e1e2e;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.hidden {
+    display: none;
+}
+
+.home {
+    padding-bottom: 20px;
+    padding-left: 20px;
+}
+
 
 h1::before { content: "# "; }
 h2::before { content: "## "; }

@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const articleCategories = JSON.parse(frontmatter[0])
       const css = frontmatter[1].slice(2, -1)
-
+      
       article.innerText = name + " " + JSON.stringify(articleCategories)
       articleCategories.forEach(cat => allCats.add(cat))
 
@@ -63,6 +63,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (direction === "down" && currentIndex < maxIndex) currentIndex++
     if (direction === "up" && currentIndex > 0) currentIndex--
     updateSelection()
+  }
+
+  function getSelectedArticle() {
+    return articles[currentIndex].textContent
   }
 
   async function renderCategories(catList) {
@@ -125,6 +129,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       document.getElementById("enter").setAttribute("cap-", "square round")
       document.getElementById("esc").style.visibility = "hidden"
+    }
+    else if (e.key === "Enter") {
+      window.location.href = "/read#" + getSelectedArticle()
     }
   })
 
