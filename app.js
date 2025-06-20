@@ -105,12 +105,12 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCatSelection()
   }
 
-  // Register keydown listener only once to avoid repeated listeners
   document.addEventListener("keydown", e => {
     if (e.key === "j" || e.key === "ArrowDown") moveSelection("down")
     else if (e.key === "k" || e.key === "ArrowUp") moveSelection("up")
     else if (e.key === "l" || e.key === "ArrowRight") moveCategory("right")
     else if (e.key === "h" || e.key === "ArrowLeft") moveCategory("left")
+    else if (e.key === "m") document.getElementById("help").classList.toggle("hidden")
     else if (e.key === "o") {
       const container = document.getElementById("articles-container")
       container.innerHTML = "" // Clear articles before re-rendering

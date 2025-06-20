@@ -45,14 +45,26 @@
     </div>
 
     <div class="bar">
-        <span is-="badge" cap-="square">[h]elp</span>
+        <span is-="badge" cap-="square">[m] help</span>
         <span is-="badge" cap-="square" variant-="foreground1">[o]pen category</span>
         <span is-="badge" cap-="square round" variant-="foreground2" id="enter">[Enter] an article</span>
         <span is-="badge" cap-="square round" variant-="foreground2" id="esc" style="visibility: hidden;">[Esc]ape filterd view</span>
 
     </div>
 
-    
-</nav>
+
+    <div box-="round" class="help home hidden" id="help" shear-="both">
+        <div class="header">
+            <span is-="badge" variant-="background0"><h1>Help</h1></span>
+        </div>
+        <p><strong>[m]</strong> Toggles this Help page</p>
+        <p><strong>[o]</strong> Opens the selected category</p>
+        <p><strong>[->]</strong> Moves the category selection to the right</p>
+        <p><strong>[<-]</strong> Moves the category selection to the left</p>
+        <p><strong>[↑]</strong> Moves the article selection up</p>
+        <p><strong>[↓]</strong> Moves the article selection down</p>
+        <p><strong>[Enter]</strong> Opens an Article</p>
+        <p><strong>[Escape]</strong> Return to normal view</p>
+    </div>
 </body>
 </html>
