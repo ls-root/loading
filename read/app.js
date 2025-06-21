@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const hash = decodeURIComponent(window.location.hash)
     const re = new RegExp("\\b.+?\\.md\\b") // Get only file name without categories
     const match = re.exec(hash)
@@ -28,9 +28,31 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     renderArticle()
+    function updateProgress() {
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight
+        const pct = scrollable > 0
+            ? Math.round((window.scrollY / scrollable) * 100)
+            : 0
+        const bar = document.getElementById('progress')
+        bar.textContent = pct + '%'
+        bar.style.width = pct / 100 * 30 + '%'
+        bar.style.transition = 'width 0.25s ease'
+        bar.style.backgroundColor = "#9399b2"
+    }
 
-    document.addEventListener("keydown", e => {
-        if (e.key === "b") window.location.href = "/"
-        else if (e.key === "m") document.getElementById("help").classList.toggle("hidden")
+    window.addEventListener('scroll', updateProgress)
+    updateProgress()
+
+    document.addEventListener('keydown', e => {
+        if (e.key === 'b') window.location.href = '/'
+        else if (e.key === 'm') document.getElementById('help').classList.toggle('hidden')
+        else if (e.key === 'j') {
+            window.scrollBy({ top: 100, behavior: 'smooth' })
+        } else if (e.key === 'k') {
+            window.scrollBy({ top: -100, behavior: 'smooth' })
+        }
+        // after any smooth scroll we still want to refresh the bar
+        // a small timeout catches the in-progress scroll movement
+        setTimeout(updateProgress, 300)
     })
 })
