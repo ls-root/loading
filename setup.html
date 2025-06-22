@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" data-webtui-theme="catppuccin">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup - Loading Blog</title>
+    <link rel="stylesheet" href="webtui.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="setup.js"></script>
+</head>
+<body>
+    <div class="center">
+        <div box-="round" class="home" shear-="both" id="step1">
+            <div class="header">
+                <span is-="badge" variant-="background0"><h1>Loading Blog v1.3 - Setup</h1></span>
+            </div>
+            <h2>Welcome to the Setup</h2>
+            <p>Press <span>f</span> to continue. If it doesnot work you maybe <br>
+            need to disable the Vimium extension if you have it installed</p>
+        </div>
+
+        <div box-="round" class="home" shear-="both" id="step2" style="display: none;">
+            <div class="header">
+                <span is-="badge" variant-="background0"><h1>Loading Blog v1.3 - Setup</h1></span>
+            </div>
+            <h2>Are you a Human or Robot</h2>
+            <p>If you are a Human please click the button or press <span>h</span> <br>
+            If you are a robot you can just go on scraping. <br>
+            <h3>Why do I need to verify?</h3>
+            <p>This is only for anonymus statistics so I can see <br>
+            how many actual humans visit my blog.</p>
+            <h3>How to scrape</h3>
+            <span>/articles.json</span> contains all articles. <br>
+            <p>The articles are in <span>/articles/{name}.md</span></p></p>
+        </div>
+
+    </div>
+
+    <div class="bar">
+        <span is-="badge" cap-="square round">[m] help</span>
+    </div>
+
+
+    <div box-="round" class="help home hidden" id="help" shear-="both">
+        <div class="header">
+            <span is-="badge" variant-="background0"><h1>Help</h1></span>
+        </div>
+        <p><strong>[m]</strong> Toggles this Help page</p>
+    </div>
+</body>
+</html>
