@@ -1,6 +1,7 @@
 ---
 cat: ["Linux", "fail"]
 css: img { width: 500px }
+who: lsroot
 ---
 > ⚠️ This article was written when I had a different design. It still uses the old image style. If you're curious about what the design looked like: [Image 1](https://cloud.fiosproject.de/legacyblog1.png)  [Image 2](https://cloud.fiosproject.de/legacyblog2.png)  
 <br>

@@ -63,6 +63,12 @@ pre {
     justify-content: space-between;
 }
 
+a {
+    color: #89dceb;
+    text-decoration: underline;
+}
+
+
 .hidden {
     display: none;
 }
