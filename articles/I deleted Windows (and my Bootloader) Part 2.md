@@ -1,6 +1,7 @@
 ---
 cat: ["Linux", "fail"]
 css: img { width: 700px }
+who: lsroot
 ---
 
 Okay, misleading title. I'm not deleting Windows here. That already happened — read the last post if you want the details. Just hit n on this site to go to the previous entry. Start there. It'll make more sense.

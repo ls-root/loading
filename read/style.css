@@ -58,6 +58,11 @@ pre {
     padding-right: 50px;
 }
 
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
 .hidden {
     display: none;
 }

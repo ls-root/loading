@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const hash = decodeURIComponent(window.location.hash)
-    const re = new RegExp("\\b.+?\\.md\\b") // Get only file name without categories
+    const re = new RegExp("\\b.+?\\.md\\b")
     const match = re.exec(hash)
     const articleName = match ? match[0] : null
 
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("timer").textContent = wait
             wait--
 
-            if(wait < 0) {
+            if (wait < 0) {
                 window.location.href = "/"
             }
         }, 1000)
@@ -28,15 +28,48 @@ document.addEventListener("DOMContentLoaded", function () {
         const text = await res.text()
         const lines = text.split("\n")
 
-        // Extract frontmatter before slicing
-        const frontmatterLines = lines.slice(1, 3).map(line => line.slice(4))
-        const css = frontmatterLines[1].slice(1)
+        // Extract frontmatter block
+        let frontmatter = {}
+        let inFrontmatter = false
 
-        const cssobj = document.createElement("style")
-        cssobj.innerText = css
-        document.body.appendChild(cssobj)
+        for (let line of lines) {
+            if (line.trim() === '---') {
+                if (!inFrontmatter) {
+                    inFrontmatter = true
+                    continue
+                } else {
+                    break
+                }
+            }
 
-        const articlesContent = lines.slice(4).join("\n") // Remove frontmatter
+            if (inFrontmatter) {
+                const [key, ...rest] = line.split(":")
+                if (!key || !rest.length) continue
+                const rawValue = rest.join(":").trim()
+
+                if (rawValue.startsWith("[") && rawValue.endsWith("]")) {
+                    try {
+                        frontmatter[key.trim()] = JSON.parse(rawValue)
+                    } catch {
+                        frontmatter[key.trim()] = rawValue
+                    }
+                } else {
+                    frontmatter[key.trim()] = rawValue
+                }
+            }
+        }
+
+        if (frontmatter.who)
+            document.getElementById("who").textContent = frontmatter.who
+
+        if (frontmatter.css) {
+            const cssobj = document.createElement("style")
+            cssobj.innerText = frontmatter.css
+            document.body.appendChild(cssobj)
+        }
+
+        const contentStart = lines.findIndex((line, i) => line.trim() === '---' && i > 0) + 1
+        const articlesContent = lines.slice(contentStart).join("\n")
         document.getElementById("content").innerHTML = marked.parse(articlesContent)
     }
 
@@ -89,8 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
             window.scrollBy({ top: -100, behavior: 'smooth' })
         } else if (e.key === 'n') next()
         else if (e.key === 'l') last()
-        // after any smooth scroll we still want to refresh the bar
-        // a small timeout catches the in-progress scroll movement
+
         setTimeout(updateProgress, 300)
     })
 })
