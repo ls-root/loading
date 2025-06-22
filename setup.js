@@ -1,3 +1,11 @@
+if((( window.innerWidth <= 800 ) && ( window.innerHeight <= 600 ))) {
+    // I think that Mobile users are not Bots
+    fetch("humanlanded.php")
+      .then(res => {
+        if (res.ok) window.location = "/"
+      })
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("keydown", e => {
         if (e.key === "m") {

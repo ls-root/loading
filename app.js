@@ -17,7 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
       // Create article element
       const article = document.createElement("p")
       article.setAttribute("tabindex", "-1")
-
+      article.onclick = () => window.location.href = "/read/#" + name
+      
       // Get content
       const res = await fetch("articles/" + name)
       const articlesContent = await res.text()

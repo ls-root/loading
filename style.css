@@ -73,6 +73,37 @@ a {
     display: none;
 }
 
+.mobile {
+    display: none;
+}
+
+@media screen and (max-width: 800px) {
+    .bar {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
+    }
+
+    .desktop {
+        display: none;
+    }
+
+    .categories {
+        display: none;
+    }
+
+    .articles-container {
+        height: 95%;
+    }
+
+    .center {
+        width: 100%;
+    }
+}
+
+
 h1::before { content: "# "; }
 h2::before { content: "## "; }
 h3::before { content: "### "; }
