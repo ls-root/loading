@@ -11,9 +11,9 @@ A programming language can be either `interpreted` or `compiled`. You probably h
 1. **Converting the Code**: The source code is translated into machine code by a compiler.
 2. **Running the Machine Code**: The generated machine code is executed by the computer's processor.
 
-![](https://fiosproject.de/files/pl1.png "")
+![](/files/pl1.png "")
 
-On the other hand, an interpreted language like `Python` first performs lexical analysis to check if the syntax is correct. After verifying the syntax, it builds an Abstract Syntax Tree (AST), which is a tree representation of the structure of the source code. The AST breaks down the code into its constituent parts, representing the hierarchical relationship between different elements, such as expressions, statements, and declarations. This structure allows the interpreter to understand the code's logic and flow. Finally, the interpreter executes the code directly, translating it into machine code on the fly.![](https://fiosproject.de/files/pl2.png "")
+On the other hand, an interpreted language like `Python` first performs lexical analysis to check if the syntax is correct. After verifying the syntax, it builds an Abstract Syntax Tree (AST), which is a tree representation of the structure of the source code. The AST breaks down the code into its constituent parts, representing the hierarchical relationship between different elements, such as expressions, statements, and declarations. This structure allows the interpreter to understand the code's logic and flow. Finally, the interpreter executes the code directly, translating it into machine code on the fly.![](/files/pl2.png "")
 ## How does my Programming Language Work
 I have created my own very stripped-down version of an interpreted language. I go through the source code line by line and execute it without compiling it first.
 ## Building it
@@ -96,7 +96,7 @@ Let's go through it line by line (like an interpreter):
 - If you try to define a variable and the variable value contains a comma, it only saves the part before the comma. For example: `VAR message, Hello, World!` saves `Hello`.
 ## Download
 
-You can download it from [here](https://fiosproject.de/files/sac.py). If this link does not work, try [this](https://gist.github.com/FiOS-repo/2bbbdd5e2eab21802ccfc9b399a3f5f0) mirror. It does not require any dependencies; the code needs to be defined in the code variable at the top.
+You can download it from [here](/files/sac.py). If this link does not work, try [this](https://gist.github.com/FiOS-repo/2bbbdd5e2eab21802ccfc9b399a3f5f0) mirror. It does not require any dependencies; the code needs to be defined in the code variable at the top.
 
 
 

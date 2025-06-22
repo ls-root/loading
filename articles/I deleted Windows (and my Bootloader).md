@@ -39,7 +39,9 @@ Then it filled up.
 # Time to Kill Windows
 So I made a bootable USB with Rescatux on it — because it comes with a bootloader repair tool I’d need. First step: erase Windows. Accidentally I deleted my swap partition too. No big deal. I upgraded my RAM; swap was more symbolic than practical.
 This was my Partition Layout after Windows:
-![[partitions.png]]
+
+![](/files/partitions.png)
+
 I had unallocated space where Windows used to be. Wanted to grow my root partition. GParted said no.
 
 Why? Because Linux tools are often smarter than they need to be. The partitions have to be adjacent. Fine. I moved them around. Clicked “resize.” It failed.

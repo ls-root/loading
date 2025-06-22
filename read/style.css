@@ -25,6 +25,10 @@ pre {
     margin-top: 0;
     margin-bottom: 0;
 }
+
+.flex {
+    display: flex;
+}
 /*
 .bg1 { background-color: #cdd6f4; }
 .bg2 { background-color: #bac2de; }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-webtui-theme="catppuccin">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,12 +18,15 @@
     <script src="render.js" defer></script>
     <script src="app.js"></script>
 </head>
+
 <body>
-    <div box-="round" class="block" shear-="both">
+    <div box-="round" class="block" id="block" shear-="both">
         <div class="header">
-            <span is-="badge" variant-="background0"><h1 id="title">Title</h1></span>
+            <span is-="badge" variant-="background0">
+                <h1 id="title">Title</h1>
+            </span>
         </div>
-        
+
         <div id="content"></div>
     </div>
 
@@ -34,19 +38,36 @@
         <span is-="badge" cap-="square round" variant-="foreground2">[l]ast</span>
     </div>
 
-        <div box-="round" class="help home hidden" id="help" shear-="both">
+    <div box-="round" class="help home hidden" id="help" shear-="both">
         <div class="header">
-            <span is-="badge" variant-="background0"><h1>Help</h1></span>
+            <span is-="badge" variant-="background0">
+                <h1>Help</h1>
+            </span>
         </div>
         <p><strong>[m]</strong> Toggles this Help page</p>
         <p><strong>[o]</strong> Opens the selected category</p>
         <p><strong>[->]</strong> Moves the category selection to the right</p>
-        <p><strong>[<-]</strong> Moves the category selection to the left</p>
+        <p><strong>[<-]< /strong> Moves the category selection to the left</p>
         <p><strong>[↑]</strong> Moves the article selection up</p>
         <p><strong>[↓]</strong> Moves the article selection down</p>
         <p><strong>[Enter]</strong> Opens an Article</p>
         <p><strong>[Escape]</strong> Return to normal view</p>
     </div>
 
+    <div box-="round" class="help home hidden" id="error" shear-="both">
+        <div class="header">
+            <span is-="badge" variant-="background0">
+                <h1>ERROR!</h1>
+            </span>
+        </div>
+        <div class="flex""><img src="../assets/warning.png" style="width: 100px; margin-right: 10px;"
+                alt="Image of an Badly pixelated drawn Warning Symbol">
+            <div class="">
+                <h2>Couldn't Render Article</h2>
+                <p>Invalid Article. <br> Returning home in <span id="timer">3</span>s</p>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>

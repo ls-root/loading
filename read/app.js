@@ -4,7 +4,20 @@ document.addEventListener("DOMContentLoaded", function () {
     const match = re.exec(hash)
     const articleName = match ? match[0] : null
 
-    if (!articleName) return
+    if (!articleName || hash === "#null") {
+        document.getElementById("error").classList.remove("hidden")
+        document.getElementById("block").classList.add("hidden")
+        let wait = 2
+        const interval = setInterval(() => {
+            document.getElementById("timer").textContent = wait
+            wait--
+
+            if(wait < 0) {
+                window.location.href = "/"
+            }
+        }, 1000)
+        return
+    }
 
     window.location.hash = encodeURIComponent(articleName)
     document.title = articleName + " - Loading Blog"
@@ -28,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     renderArticle()
+
     function updateProgress() {
         const scrollable = document.documentElement.scrollHeight - window.innerHeight
         const pct = scrollable > 0
@@ -43,6 +57,29 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener('scroll', updateProgress)
     updateProgress()
 
+    const getNext = (arr, current) => {
+        const idx = arr.indexOf(current)
+        if (idx < 0 || idx >= arr.length - 1) return null
+        return arr[idx + 1]
+    }
+
+    async function next() {
+        const articles = await fetch("/articles.json")
+        const res = await articles.json()
+        window.location.href = "/read#" + getNext(res, articleName)
+    }
+
+    const getLast = arr => {
+        if (arr.length === 0) return null
+        return arr[arr.length - 1]
+    }
+
+    async function last() {
+        const articles = await fetch("/articles.json")
+        const res = await articles.json()
+        window.location.href = "/read#" + getLast(res, articleName)
+    }
+
     document.addEventListener('keydown', e => {
         if (e.key === 'b') window.location.href = '/'
         else if (e.key === 'm') document.getElementById('help').classList.toggle('hidden')
@@ -50,7 +87,8 @@ document.addEventListener("DOMContentLoaded", function () {
             window.scrollBy({ top: 100, behavior: 'smooth' })
         } else if (e.key === 'k') {
             window.scrollBy({ top: -100, behavior: 'smooth' })
-        }
+        } else if (e.key === 'n') next()
+        else if (e.key === 'l') last()
         // after any smooth scroll we still want to refresh the bar
         // a small timeout catches the in-progress scroll movement
         setTimeout(updateProgress, 300)

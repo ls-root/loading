@@ -15,7 +15,7 @@ To solve this, I added a prefix with my city and village.
 
 That helped a bit — but I only got 13 results. So I moved on to scraping coordinates from Google Maps and importing them into `OpenStreetMap`.
 
-![](https://fiosproject.de/files/maps.png)
+![](/files/maps.png)
 # Wayland vs. Automation: Why I Had to Switch Back to Windows (Only for two Hours)
 Initially, I tried using the **Google Maps JavaScript API** to visualize the addresses, which worked fine. Then I discovered the **Google Maps Geocoding API**, which seemed like a better fit for turning addresses into coordinates.
 
@@ -50,7 +50,7 @@ Naturally, I assumed it was using something like OpenStreetMap or Google Maps on
 
 **It was using Apple’s MapKit JS API**.
 
-![](https://fiosproject.de/files/gpscoordsinates.png)
+![](/files/gpscoordsinates.png)
 
 Even more shocking: **the credentials were fully exposed on the client side**.
 

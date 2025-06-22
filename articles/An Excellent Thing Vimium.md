@@ -26,7 +26,7 @@ Here’s where **Vimium** comes in.
 
 When you have the `Vimium` extension installed and press `f`, Vimium assigns a label (usually two letters) to every clickable element on the page. You just type the letters corresponding to the link or button you want to click—**no mouse needed**.
 
-![A screenshot of `vimium` showing a website with two buttons, each marked with a small letter box](https://fiosproject.de/files/vimium.png "A screenshot of `vimium` showing a website with two buttons, each marked with a small letter box")
+![A screenshot of `vimium` showing a website with two buttons, each marked with a small letter box](/files/vimium.png "A screenshot of `vimium` showing a website with two buttons, each marked with a small letter box")
 
 _A screenshot of `vimium` showing a website with two buttons, each marked with a small letter box_
 You can also watch Vimium in action here: [Demo Video](https://cloud.fiosproject.de/Vimium.mp4) (Everything shown was done using only the keyboard!)
