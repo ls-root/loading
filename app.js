@@ -4,6 +4,26 @@ document.addEventListener("DOMContentLoaded", () => {
   let articles = []
   let categories = []
 
+  function bg(activated) {
+    if (activated == null) {
+      const bgSetting = localStorage.getItem("bg")
+      if (bgSetting === null) {
+        localStorage.setItem("bg", "true")
+        document.body.classList.add("bg")
+      } else if (bgSetting === "true") {
+        document.body.classList.add("bg")
+      } else {
+        document.body.classList.remove("bg")
+      }
+    } else {
+      localStorage.setItem("bg", activated ? "true" : "false")
+      bg() // reload config
+    }
+  }
+
+
+  bg()
+
   async function renderArticles(only) {
     const res = await fetch("articles.json")
     const articlesData = await res.json()
@@ -18,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const article = document.createElement("p")
       article.setAttribute("tabindex", "-1")
       article.onclick = () => window.location.href = "/read/#" + name
-      
+
       // Get content
       const res = await fetch("articles/" + name)
       const articlesContent = await res.text()
@@ -31,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const articleCategories = JSON.parse(frontmatter[0])
       const css = frontmatter[1].slice(2, -1)
-      
+
       article.innerText = name + " " + JSON.stringify(articleCategories)
       articleCategories.forEach(cat => allCats.add(cat))
 
