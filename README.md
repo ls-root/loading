@@ -1,0 +1,3 @@
+# Loading Blog v1.3
+This is the source code of my Blog mostly about Linux. You can check it out on https://fiosproject.de/
+It's built with plain `JavaScript`, `HTML` and `CSS`. For analytics there are two `PHP` files that are optional. I use the Library webtui for the Components that look like a TUI. This site is also fully keyboard based. To show the keyboard shortcuts just press `m` on the site to view the Help. It also requires a lot of `JavaScript` to render the Posts.
