@@ -41,7 +41,7 @@ Then it filled up.
 So I made a bootable USB with Rescatux on it — because it comes with a bootloader repair tool I’d need. First step: erase Windows. Accidentally I deleted my swap partition too. No big deal. I upgraded my RAM; swap was more symbolic than practical.
 This was my Partition Layout after Windows:
 
-![](/files/partitions.png)
+![](/files/partitions_new.png)
 
 I had unallocated space where Windows used to be. Wanted to grow my root partition. GParted said no.
 
