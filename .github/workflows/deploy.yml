@@ -1,0 +1,23 @@
+name: Deploy via SFTP
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Upload via SFTP
+        uses: pressidium/lftp-mirror-action@v1
+        with:
+          host: access964359443.webspace-data.io
+          user: u112427540
+          password: ${{ secrets.SFTP_PASSWORD }}
+          localDir: ./
+          remoteDir: /kunden/homepages/1/d964359443/htdocs/loading
+          options: --reverse --delete --verbose
