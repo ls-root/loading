@@ -1,12 +1,15 @@
-if (((window.innerWidth <= 800) && (window.innerHeight <= 600))) {
-  // I think that Mobile users are not Bots
-  fetch("humanlanded.php")
-    .then(res => {
-      if (res.ok) window.location = "/"
-    })
-}
-
 document.addEventListener("DOMContentLoaded", () => {
+
+  const mobileMarker = document.getElementById("mobileMarker");
+  if (mobileMarker && window.getComputedStyle(mobileMarker).display === "block") {
+    // I think that Mobile users are not Bots
+    fetch("humanlanded.php")
+      .then(res => {
+        if (res.ok) window.location = "/"
+      })
+  }
+
+
   document.addEventListener("keydown", e => {
     if (e.key === "m") {
       const help = document.getElementById("help")
