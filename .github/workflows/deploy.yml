@@ -12,12 +12,18 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Upload via SFTP
-        uses: pressidium/lftp-mirror-action@v1
-        with:
-          host: access964359443.webspace-data.io
-          user: u112427540
-          pass: ${{ secrets.SFTP_PASSWORD }}
-          localDir: ./
-          remoteDir: /kunden/homepages/1/d964359443/htdocs/loading
-          options: --reverse --delete --verbose
+      - name: Install lftp
+        run: sudo apt update && sudo apt install -y lftp
+
+      - name: Deploy via lftp
+        env:
+          SFTP_USER: u112427540
+          SFTP_PASS: ${{ secrets.SFTP_PASSWORD }}
+          SFTP_HOST: access964359443.webspace-data.io
+        run: |
+          lftp -u $SFTP_USER,$SFTP_PASS sftp://$SFTP_HOST <<EOF
+          rm -r /kunden/homepages/1/d964359443/htdocs/loading
+          mkdir /kunden/homepages/1/d964359443/htdocs/loading
+          mirror --reverse --delete --verbose ./ /kunden/homepages/1/d964359443/htdocs/loading
+          quit
+          EOF
