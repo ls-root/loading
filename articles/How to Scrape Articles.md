@@ -6,7 +6,7 @@ who: lsroot
 
 # How to Scrape Articles from This Blog
 
-If you're a developer or researcher looking to access content programmatically, this guide explains how you can scrape articles from this blog ethically and efficiently.
+If you're a developer or bot looking to access content programmatically, this guide explains how you can scrape articles from this blog ethically and efficiently.
 
 ## Step 1: Understand the Structure
 
@@ -42,11 +42,11 @@ who: lsroot
 
 ```js
 async function fetchArticles() {
-  const res = await fetch('/articles.json')
+  const res = await fetch('https://fiosproject.de/articles.json')
   const list = await res.json()
 
   for (const file of list) {
-    const res = await fetch(`/articles/${encodeURIComponent(file)}`)
+    const res = await fetch(`https://fiosproject.de/articles/${encodeURIComponent(file)}`)
     const text = await res.text()
     console.log(`Fetched ${file}:\n${text.substring(0, 200)}...\n`)
   }

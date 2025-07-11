@@ -16,7 +16,7 @@ After I installed Linux, I started setting it up. Here's what I did:
 - Installed VSCode
 - Installed Node.js
 - Explored the pre-installed apps
-The next day, I forgot that I had Linux installed and booted into Windows. The first thing I did was try to connect my Bluetooth headphones, but it didn’t work. So I ended up using a wired connection instead. Also, the LAN port on the motherboard wouldn’t connect — only a LAN-to-USB adapter worked.
+The next day, I forgot that I had Linux installed and booted into Windows. The first thing I did was try to connect my Bluetooth headphones, but it didn’t work. So I ended up using a wired connection instead. Also, the LAN port on the motherboard wouldn’t connect - only a LAN-to-USB adapter worked.
 
 The next day, I booted into Linux again, and everything worked fine.
 ## How I destroyed My Linux Setup 
@@ -28,7 +28,7 @@ After that, I rebooted the system, but I couldn’t log in anymore. So I gave up
 ## What Actually Happened
 Now I know a lot more about Linux and use it as my daily driver. Back then, when I had these issues, I didn’t search online for solutions.
 ### Bluetooth Issues
-When you connect a Bluetooth device, Windows stores the **MAC address** of the device and generates a **link key**, which is saved by both Windows and the Bluetooth device. In some cases—especially with certain headphones—the device may also store the MAC address of the PC it paired with.
+When you connect a Bluetooth device, Windows stores the **MAC address** of the device and generates a **link key**, which is saved by both Windows and the Bluetooth device. In some cases-especially with certain headphones-the device may also store the MAC address of the PC it paired with.
 
 ![](/files/bluethooth.png)
 
@@ -38,11 +38,11 @@ You might know the YouTuber **Linus Tech Tips**, who also tried using Linux and 
 
 When a package conflict occurs, the package manager asks whether to remove the conflicting packages. If you don’t read the output carefully and just say “yes” (like I did), things can go wrong.
 
-In my case, Ubuntu already had `fuse3` installed. I tried to install an older version (`fuse2`), which conflicted with `fuse3`. The package manager asked if I wanted to remove `fuse3` — **and all packages that depended on it**. Unfortunately, many components of the GNOME desktop environment depend on `fuse3`.
+In my case, Ubuntu already had `fuse3` installed. I tried to install an older version (`fuse2`), which conflicted with `fuse3`. The package manager asked if I wanted to remove `fuse3` - **and all packages that depended on it**. Unfortunately, many components of the GNOME desktop environment depend on `fuse3`.
 
 ![](/files/libfuse.png)
 
 As a result, I lost the file manager (since it's part of GNOME), and I couldn’t log in anymore because the system tried to load a desktop environment that I had unknowingly uninstalled.
 ## What Have I Learned
 Always read every **yes or no** prompt carefully.
-If something breaks, **look it up** — don’t give up.
+If something breaks, **look it up** - don’t give up.

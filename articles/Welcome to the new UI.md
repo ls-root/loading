@@ -12,7 +12,7 @@ The new UI should be usable like the old UI, including the same keyboard shortcu
 
 # An Excellent Thing: WebTUI
 
-You may have noticed that the design is inspired by a TUI—and yes, it is. This was made possible thanks to the awesome work of [IroncladDev](https://github.com/IroncladDev) and all the [contributors](https://github.com/webtui/webtui/graphs/contributors) of [WebTUI](https://github.com/webtui/webtui). It's a really great product with many well-designed components. It is definitely worth checking out.
+You may have noticed that the design is inspired by a TUI-and yes, it is. This was made possible thanks to the awesome work of [IroncladDev](https://github.com/IroncladDev) and all the [contributors](https://github.com/webtui/webtui/graphs/contributors) of [WebTUI](https://github.com/webtui/webtui). It's a really great product with many well-designed components. It is definitely worth checking out.
 
 # The New Background
 
@@ -46,4 +46,4 @@ localStorage.setItem("bg", true)
 
 The setup is just there to make sure Vimium is turned off and to verify that you are human. Some of you may ask: why include a guide for robots on how to scrape? Because I want to count how many actual humans visit my site. My old analytics system also counted robots.
 
-When you're human, it sends a request to `humanlanded.php`. This logs your IP. If you visit again, it uses `isusernew.php` to check if you're already in the log. If so, nothing happens—otherwise, it redirects you to the setup.
+When you're human, it sends a request to `humanlanded.php`. This logs your IP. If you visit again, it uses `isusernew.php` to check if you're already in the log. If so, nothing happens-otherwise, it redirects you to the setup.

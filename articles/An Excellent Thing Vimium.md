@@ -70,6 +70,4 @@ So basically, `Vimium` is like `vi`, and `Vimium C` is the advanced version—li
 
 
 
-
-
-‏‏‎ ‎
+-
