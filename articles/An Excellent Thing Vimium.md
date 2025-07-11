@@ -19,11 +19,11 @@ Today, I want to talk about the browser extension **Vimium**. It's available for
 ## What Does `Vimium` Do?
 You might be wondering why this post is also in the `Linux` category. Let me explain.
 
-`vi` (and its variants like `vim` and `neovim`) is a text editor that relies heavily on keyboard shortcuts. You can get really fast with it. For example, in `vim`, you use `h`, `j`, `k`, and `l` to navigate because those keys are located on the home row—no need to stretch your fingers. It’s all about **speed** and **productivity** (because using the mouse is slow).
+`vi` (and its variants like `vim` and `neovim`) is a text editor that relies heavily on keyboard shortcuts. You can get really fast with it. For example, in `vim`, you use `h`, `j`, `k`, and `l` to navigate because those keys are located on the home row—no need to stretch your fingers. It's all about **speed** and **productivity** (because using the mouse is slow).
 
-Now imagine you're a developer using `vim`. While programming, you might wonder: _"How can I add two numbers in Python?"_ So you open your browser and search for it—but then you need to move your hand off the keyboard to click a search result. That’s a speed bump.
+Now imagine you're a developer using `vim`. While programming, you might wonder: _"How can I add two numbers in Python?"_ So you open your browser and search for it—but then you need to move your hand off the keyboard to click a search result. That's a speed bump.
 
-Here’s where **Vimium** comes in.
+Here's where **Vimium** comes in.
 
 When you have the `Vimium` extension installed and press `f`, Vimium assigns a label (usually two letters) to every clickable element on the page. You just type the letters corresponding to the link or button you want to click—**no mouse needed**.
 
@@ -47,10 +47,10 @@ You can also navigate the page efficiently:
 Managing tabs is simple too:
 - Press `x` to close the current tab
 - If you closed a tab by mistake, press `X` to **restore** it.
-And there’s a whole lot more! I recommend checking out the full cheat sheet on the Vimium website: [https://vimium.github.io/](https://vimium.github.io/)
+And there's a whole lot more! I recommend checking out the full cheat sheet on the Vimium website: [https://vimium.github.io/](https://vimium.github.io/)
 ## Vimium vs. Vimium C: What's the Difference?
-If you searched your extension store, you’ve probably also seen an extension called **`Vimium C`**.  
-**What’s the difference?**  
+If you searched your extension store, you've probably also seen an extension called **`Vimium C`**.  
+**What's the difference?**  
 While both `Vimium` and `Vimium C` aim to bring Vim-style keyboard navigation to your browser, there are some notable differences between the two.
 
 
