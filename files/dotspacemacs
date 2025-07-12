@@ -47,8 +47,9 @@ This function should only modify configuration layer settings."
    '(python
      markdown
      php
-     javascript
+     (javascript :variables javascript-backend 'tide)
      html
+     lsp
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
@@ -612,13 +613,26 @@ before packages are loaded."
 
   (global-set-key (kbd "C-2") 'my-toggle-shell)
   (global-set-key (kbd "C-1") 'other-window)
+
   ;; TailwindCSS LSP
-  (straight-use-package
-   '(lsp-tailwindcss :type git :host github :repo "merrickluo/lsp-tailwindcss"))
+  ;;(straight-use-package
+  ;; '(lsp-tailwindcss :type git :host github :repo "merrickluo/lsp-tailwindcss"))
 
-  (use-package lsp-tailwindcss
-    :after lsp-mode)
+  ;;(use-package lsp-tailwindcss
+  ;;  :after lsp-mode)
 
+  (with-eval-after-load 'lsp-mode
+    (add-to-list 'lsp-language-id-configuration
+                 '(html-mode . "html"))
+    (add-to-list 'lsp-language-id-configuration
+                 '(web-mode . "html"))
+    (lsp-register-client
+     (make-lsp-client
+      :new-connection (lsp-stdio-connection
+                       '("tailwindcss-language-server" "--stdio"))
+      :major-modes '(html-mode web-mode)
+      :server-id 'tailwindcss-ls)))
+  (setq js2-strict-missing-semi-warning nil)
   )
 
 

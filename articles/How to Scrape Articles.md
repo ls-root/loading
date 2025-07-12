@@ -1,5 +1,5 @@
 ---
-cat: ["An Excellent Thing", "WebDev"]
+cat: ["An Excellent Thing", "WebDev", "How To"]
 css: img { width: 500px }
 who: lsroot
 ---
