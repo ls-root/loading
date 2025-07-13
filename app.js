@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   bg()
 
   async function renderArticles(only) {
-    const res = await fetch("articles.json")
+    const res = await fetch("articles.json", { cache: "no-store" })
     const articlesData = await res.json()
     const container = document.getElementById("articles-container")
     container.innerHTML = "" // Clear old articles before rendering new ones
